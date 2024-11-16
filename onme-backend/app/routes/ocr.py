@@ -1,19 +1,19 @@
 from fastapi import APIRouter, UploadFile, HTTPException
-from ..utils.gpt import process_receipt_image
+from ..utils.gpt import extract_text_from_image
 import os
 
 router = APIRouter()
 
-@router.post("/")
-async def create_receipt(file: UploadFile):
+@router.post("/test-ocr")
+async def test_ocr(file: UploadFile):
     """
-    Endpoint to upload and process a receipt image.
+    Endpoint to test the OCR functionality using PaddleOCR.
 
     Args:
-        file: The uploaded receipt image.
+        file (UploadFile): The uploaded image file.
 
     Returns:
-        dict: Processed receipt data including extracted JSON details.
+        dict: Extracted text from the image.
     """
     try:
         # Save the uploaded file temporarily
@@ -24,13 +24,13 @@ async def create_receipt(file: UploadFile):
         with open(temp_file_path, "wb") as temp_file:
             temp_file.write(await file.read())
 
-        # Process the receipt image using OCR + GPT
-        result = process_receipt_image(temp_file_path)
+        # Use the OCR function to extract text
+        extracted_text = extract_text_from_image(temp_file_path)
 
         # Clean up the temporary file
         # os.remove(temp_file_path)
 
-        return result
+        return {"extracted_text": extracted_text}
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

@@ -1,0 +1,39 @@
+{
+  "vendor": "Popeyes",
+  "location": "Stere 11524, Indans.46237",
+  "date": "101",
+  "time": "317324-1205",
+  "items": [
+    {
+      "name": "ESH POATES",
+      "price": "4.75"
+    },
+    {
+      "name": "COKE22",
+      "price": "3.15"
+    },
+    {
+      "name": "UINS SPICY",
+      "price": "3.15"
+    },
+    {
+      "name": "AES SNI",
+      "price": "3.15"
+    },
+    {
+      "name": "+BISCULT",
+      "price": "3.15"
+    },
+    {
+      "name": "E ASRPOTATESGRRUY",
+      "price": "3.15"
+    },
+    {
+      "name": "COKE22",
+      "price": "3.15"
+    }
+  ],
+  "total": "17.98",
+  "tip": "1.62",
+  "total_with_tip": "19.60"
+}
