@@ -1,0 +1,22 @@
+# Ignore environment variables
+.env
+
+# Ignore credentials
+app/utils/credentials/serviceAccountKey.json
+
+# Ignore Python cache and build files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Ignore virtual environment
+env/
+
+# Ignore IDE-specific files
+.idea/
+.vscode/
+.DS_Store

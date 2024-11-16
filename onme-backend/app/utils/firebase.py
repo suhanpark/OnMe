@@ -1,14 +1,16 @@
 import firebase_admin
 from firebase_admin import credentials, firestore
-from .credentials.config import FIREBASE_SERVICE_ACCOUNT_KEY
+from dotenv import load_dotenv
 import os
 
-# Get the current directory of this file
-current_dir = os.path.dirname(os.path.abspath(__file__))
+# Load environment variables
+load_dotenv()
+
+# Get Firebase credentials path from .env
+cred_path = os.getenv("FIREBASE_SERVICE_ACCOUNT_KEY")
 
 # Initialize Firebase App
 if not firebase_admin._apps:
-    cred_path = os.path.join(current_dir, FIREBASE_SERVICE_ACCOUNT_KEY)
     cred = credentials.Certificate(cred_path)
     firebase_admin.initialize_app(cred)
 
